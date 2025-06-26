@@ -11,20 +11,17 @@ import type { Route } from './+types/home-page';
 
 export const meta: Route.MetaFunction = () => {
 	return [
-		{ title: 'Home | wemake' },
-		{ name: 'description', content: 'Welcome to wemake' },
+		{ title: 'Home' },
+		{
+			name: 'description',
+			content: 'Welcome to divide and conquer your to-do list',
+		},
 	];
 };
 
 export default function HomePage() {
 	return (
-		<main className='flex flex-col items-center justify-center mt-10 space-y-10'>
-			<div className='flex flex-col items-center justify-center'>
-				<h1 className='text-4xl font-bold'>To-Do List</h1>
-				<p className='text-md'>
-					Divide your to-do list into smaller tasks and conquer them one by one.
-				</p>
-			</div>
+		<main className='w-full flex flex-col items-center justify-center mt-10 space-y-10'>
 			<Card className='w-full max-w-2xl p-4'>
 				<CardHeader className='p-0'>
 					<CardTitle>

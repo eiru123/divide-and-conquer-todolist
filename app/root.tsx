@@ -9,6 +9,7 @@ import {
 
 import type { Route } from './+types/root';
 import './app.css';
+import Navigation from './common/components/navigation';
 
 export const links: Route.LinksFunction = () => [
 	{ rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -42,7 +43,18 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-	return <Outlet />;
+	return (
+		<div className='flex flex-col items-center justify-center'>
+			<div className='flex flex-col items-center justify-center'>
+				<h1 className='text-4xl font-bold'>To-Do List</h1>
+				<p className='text-md'>
+					Divide your to-do list into smaller tasks and conquer them one by one.
+				</p>
+			</div>
+			<Navigation />
+			<Outlet />
+		</div>
+	);
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
