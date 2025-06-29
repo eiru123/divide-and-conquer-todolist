@@ -26,7 +26,7 @@ export const links: Route.LinksFunction = () => [
 
 export function Layout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang='en' className='dark'>
+		<html lang='en' className='dark h-screen overflow-hidden'>
 			<head>
 				<meta charSet='utf-8' />
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
@@ -34,7 +34,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<Links />
 			</head>
 			<body>
-				<main className='px-20'>{children}</main>
+				{children}
 				<ScrollRestoration />
 				<Scripts />
 			</body>
@@ -44,16 +44,25 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
 	return (
-		<div className='flex flex-col items-center justify-center'>
-			<div className='flex flex-col items-center justify-center'>
+		<main className='flex flex-col h-screen'>
+			{/* 고정 헤더 */}
+			<div className='flex flex-col items-center justify-center py-6 flex-shrink-0'>
 				<h1 className='text-4xl font-bold'>To-Do List</h1>
 				<p className='text-md'>
 					Divide your to-do list into smaller tasks and conquer them one by one.
 				</p>
 			</div>
-			<Navigation />
-			<Outlet />
-		</div>
+
+			{/* 고정 네비게이션 */}
+			<div className='flex justify-center pb-4 flex-shrink-0'>
+				<Navigation />
+			</div>
+
+			{/* 메인 콘텐츠 영역 - 나머지 공간 모두 차지 */}
+			<div className='flex-1 flex justify-center px-4 pb-4 min-h-0'>
+				<Outlet />
+			</div>
+		</main>
 	);
 }
 
