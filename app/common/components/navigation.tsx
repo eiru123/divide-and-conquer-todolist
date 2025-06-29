@@ -8,7 +8,7 @@ export default function Navigation() {
 				<Link to='/'>Home</Link>
 			</Button>
 			<Button variant='ghost' asChild>
-				<Link to='/ai-chat'>AI Chat</Link>
+				<Link to='/ai-advice'>AI Advice</Link>
 			</Button>
 			<Button variant='ghost' asChild>
 				<Link to='/calendar'>Calendar</Link>
